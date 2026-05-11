@@ -12,7 +12,7 @@ First release.
 
 - command_not_found_handle hook that fires automatically for every unknown command
 - execute() wrapper that intercepts known commands and roasts on failure
-- 187 roasts across 8 categories: git, python, linux, network, generic, unknown command, desi extras, unknown extras
+- 354 roasts across 8 categories: git, python, linux, network, generic, unknown command, desi extras, unknown extras
 - Typo correction suggestions for 80+ common command misspellings
 - Per-user failure counter stored in /tmp/roast_failures_$UID
 - roast-stats command to check failure count for the day

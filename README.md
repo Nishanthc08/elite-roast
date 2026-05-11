@@ -52,7 +52,7 @@ roast-stats         # show today's failure count
 sudo apt remove elite-roast
 ```
 
-open a new terminal. everything is gone — no leftover files, no broken `.bashrc`.
+open a new terminal. everything is gone - no leftover files, no broken `.bashrc`.
 
 verify it's fully clean:
 
@@ -83,18 +83,18 @@ which roast-stats                   # should return nothing
 
 ## adding roasts in your own language
 
-all roasts live in one file — `roasts.sh`. the logic is in `roast.sh` and never needs to be touched. see [ADDING_ROASTS.md](ADDING_ROASTS.md) for the full guide.
+all roasts live in one file - `roasts.sh`. the logic is in `roast.sh` and never needs to be touched. see [ADDING_ROASTS.md](ADDING_ROASTS.md) for the full guide.
 
 quick version:
 
-### step 1 — clone the repo
+### step 1 - clone the repo
 
 ```bash
 git clone https://github.com/Nishanthc08/elite-roast
 cd elite-roast
 ```
 
-### step 2 — open roasts.sh
+### step 2 - open roasts.sh
 
 ```bash
 nano roasts.sh
@@ -110,7 +110,7 @@ GIT_INSULTS=(
 )
 ```
 
-there are 8 arrays — pick the right one:
+there are 8 arrays - pick the right one:
 
 | array | when it fires |
 |---|---|
@@ -123,7 +123,7 @@ there are 8 arrays — pick the right one:
 | `DESI_EXTRAS` | random phrase added on top occasionally |
 | `UNKNOWN_EXTRAS` | bonus line after unknown command roasts |
 
-### step 3 — add your roasts
+### step 3 - add your roasts
 
 add a new line inside the array. example adding Tamil roasts to `UNKNOWN_CMD_INSULTS`:
 
@@ -139,9 +139,9 @@ UNKNOWN_CMD_INSULTS=(
 )
 ```
 
-mix your language however you want — full native script, romanized, or mixed with English like people actually type online.
+mix your language however you want - full native script, romanized, or mixed with English like people actually type online.
 
-### step 4 — test locally
+### step 4 - test locally
 
 ```bash
 source roast.sh
@@ -150,7 +150,7 @@ gti       # should fire a roast
 blah      # should fire unknown command roast
 ```
 
-### step 5 — build and install
+### step 5 - build and install
 
 ```bash
 bash build.sh
@@ -189,7 +189,7 @@ dpkg-deb --contents elite-roast_1.0_all.deb
 lintian elite-roast_1.0_all.deb
 ```
 
-updating the version — edit `debian/control` and `build.sh` before building:
+updating the version - edit `debian/control` and `build.sh` before building:
 
 ```
 Version: 1.1
@@ -203,7 +203,7 @@ Version: 1.1
 - bash 4.0+ (pre-installed on all modern Ubuntu/Debian)
 - no other dependencies
 
-does **not** work on macOS — macOS ships with bash 3.2 which is too old. works fine on WSL2.
+does **not** work on macOS - macOS ships with bash 3.2 which is too old. works fine on WSL2.
 
 ---
 
@@ -262,8 +262,8 @@ see [ROADMAP.md](ROADMAP.md) for what is planned.
 
 ## license
 
-MIT — do whatever you want with it, add your own language, redistribute, modify.
+MIT - do whatever you want with it, add your own language, redistribute, modify.
 
 ---
 
-*namma oorina style terminal — written in Bengaluru, for everyone*
+*namma oorina style terminal - written in Bengaluru, for everyone*

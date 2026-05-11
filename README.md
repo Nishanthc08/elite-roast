@@ -73,7 +73,7 @@ which roast-stats                   # should return nothing
 - **ssh/curl/ping failure** → network roast
 - **sudo/apt/rm/chmod failure** → linux roast
 - **anything else** → generic roast
-- **312 roasts** across 8 categories
+- **354 roasts** across 8 categories
 - **typo detected** → suggests what you meant (80+ common typos covered)
 - **20% chance** → random Kannada phrase added on top of any failure
 - **time-aware** → filter coffee reminder in the afternoon, rest reminder after 8pm

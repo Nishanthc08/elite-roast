@@ -1,0 +1,54 @@
+#!/bin/bash
+set -e
+
+ROAST_DIR="/usr/share/elite-roast"
+PROFILE_FILE="/etc/profile.d/elite-roast.sh"
+
+chmod 755 "$ROAST_DIR/roast.sh"
+chmod 755 "$ROAST_DIR/roasts.sh"
+
+cat > "$PROFILE_FILE" << 'PROFILEEOF'
+# BEGIN elite-roast
+if [ -n "$BASH_VERSION" ] && [ -f /usr/share/elite-roast/roast.sh ]; then
+    source /usr/share/elite-roast/roast.sh
+    setup_roast_aliases
+fi
+# END elite-roast
+PROFILEEOF
+chmod 644 "$PROFILE_FILE"
+
+inject_bashrc() {
+    local bashrc="$1"
+    [ -f "$bashrc" ] || return 0
+    grep -q "BEGIN elite-roast" "$bashrc" 2>/dev/null && return 0
+
+    local tmp
+    tmp=$(mktemp)
+    cp "$bashrc" "$tmp"
+    cat >> "$tmp" << 'SNIPPET'
+
+# BEGIN elite-roast
+if [ -f /usr/share/elite-roast/roast.sh ]; then
+    source /usr/share/elite-roast/roast.sh && setup_roast_aliases
+fi
+# END elite-roast
+SNIPPET
+
+    if bash -n "$tmp" 2>/dev/null; then
+        cp "$tmp" "$bashrc"
+    else
+        echo "warning: skipped $bashrc, syntax check failed"
+    fi
+    rm -f "$tmp"
+    return 0
+}
+
+inject_bashrc /root/.bashrc || true
+
+for home_dir in /home/*/; do
+    [ -d "$home_dir" ] && inject_bashrc "${home_dir}.bashrc" || true
+done
+
+echo ""
+echo "elite-roast installed. open a new terminal and start making mistakes."
+echo ""

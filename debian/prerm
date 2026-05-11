@@ -1,0 +1,28 @@
+#!/bin/bash
+set -e
+
+rm -f /etc/profile.d/elite-roast.sh
+
+remove_block() {
+    local bashrc="$1"
+    [ -f "$bashrc" ] || return 0
+    sed -i '/# BEGIN elite-roast/,/# END elite-roast/d' "$bashrc"
+    sed -i '/elite-roast/d' "$bashrc"
+    sed -i '/roast\.sh/d' "$bashrc"
+    sed -i '/setup_roast_aliases/d' "$bashrc"
+    sed -i '$ { /^fi$/d }' "$bashrc"
+    sed -i '$ { /^fi$/d }' "$bashrc"
+    return 0
+}
+
+remove_block /root/.bashrc || true
+
+for home_dir in /home/*/; do
+    [ -d "$home_dir" ] && remove_block "${home_dir}.bashrc" || true
+done
+
+for f in /tmp/roast_failures_*; do
+    [ -f "$f" ] && rm -f "$f"
+done
+
+echo "elite-roast removed. terminal is boring again."

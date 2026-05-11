@@ -1,0 +1,1 @@
+extend-diff-ignore = "^(public/|server/|node_modules/|package-lock\.json|\.env.*|logs/)"

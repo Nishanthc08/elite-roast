@@ -1,0 +1,19 @@
+#!/bin/bash
+# autopkgtest: failure-counter
+# checks that failure counter increments and resets correctly
+set -e
+
+source /usr/share/elite-roast/roast.sh
+
+FAIL_FILE="/tmp/roast_failures_${UID}"
+rm -f "$FAIL_FILE"
+
+# trigger the counter via command_not_found_handle
+command_not_found_handle "fakecmd" > /dev/null 2>&1 || true
+command_not_found_handle "fakecmd" > /dev/null 2>&1 || true
+
+count=$(cat "$FAIL_FILE" 2>/dev/null || echo 0)
+[ "$count" -eq 2 ] || { echo "FAIL: counter should be 2, got $count"; exit 1; }
+
+rm -f "$FAIL_FILE"
+echo "PASS: failure counter works correctly"

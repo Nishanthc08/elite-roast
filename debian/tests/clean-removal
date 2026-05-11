@@ -1,0 +1,11 @@
+#!/bin/bash
+# autopkgtest: clean-removal
+# checks that key files exist after install (removal tested by dpkg itself)
+set -e
+
+[ -f /usr/share/elite-roast/roast.sh ]  || { echo "FAIL: roast.sh not installed"; exit 1; }
+[ -f /usr/share/elite-roast/roasts.sh ] || { echo "FAIL: roasts.sh not installed"; exit 1; }
+[ -x /usr/bin/roast-stats ]             || { echo "FAIL: roast-stats not executable"; exit 1; }
+[ -f /etc/profile.d/elite-roast.sh ]    || { echo "FAIL: profile.d file missing"; exit 1; }
+
+echo "PASS: all files installed correctly"

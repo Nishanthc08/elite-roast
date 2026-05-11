@@ -1,0 +1,11 @@
+Package: elite-roast
+Version: 1.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: Nishanth C <nishanthc264@gmail.com>
+Homepage: https://github.com/Nishanthc08
+Description: Bengaluru style terminal roaster
+ Roasts you every time you type a wrong or failing command.
+ South Indian flavor, Kannada meme language, local references.
+ Because boring error messages are a waste of everyone's time.

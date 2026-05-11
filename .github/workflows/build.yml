@@ -1,0 +1,48 @@
+name: build and test
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  release:
+    types: [created]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+
+      - name: install tools
+        run: sudo apt-get install -y lintian dpkg-sig
+
+      - name: build deb
+        run: |
+          export SOURCE_DATE_EPOCH=$(git log -1 --format=%ct)
+          bash build.sh
+
+      - name: lintian check
+        run: lintian elite-roast_1.0_all.deb
+
+      - name: run test suite
+        run: |
+          sudo dpkg -i elite-roast_1.0_all.deb
+          for test in debian/tests/*; do
+            echo "--- $(basename $test) ---"
+            bash "$test"
+          done
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: elite-roast-deb
+          path: elite-roast_1.0_all.deb
+
+      - name: attach to release
+        if: github.event_name == 'release'
+        uses: softprops/action-gh-release@v1
+        with:
+          files: elite-roast_1.0_all.deb

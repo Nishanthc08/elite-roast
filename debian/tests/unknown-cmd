@@ -1,0 +1,14 @@
+#!/bin/bash
+# autopkgtest: unknown-cmd
+# checks that command_not_found_handle fires and produces roast output
+
+source /usr/share/elite-roast/roast.sh
+
+# call directly and capture output, strip ansi codes
+output=$(command_not_found_handle "blahblahblah" 2>&1 | sed 's/\x1b\[[0-9;]*m//g') || true
+
+echo "$output" | grep -q "not a thing"   || { echo "FAIL: roast output missing"; exit 1; }
+echo "$output" | grep -q "you typed"     || { echo "FAIL: typed line missing"; exit 1; }
+echo "$output" | grep -q "failures today" || { echo "FAIL: counter line missing"; exit 1; }
+
+echo "PASS: unknown command roast fired correctly"

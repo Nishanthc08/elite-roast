@@ -1,0 +1,36 @@
+# dependencies
+node_modules/
+
+# environment - never commit real .env
+.env
+.env.local
+.env.production
+
+# build artifacts
+*.deb
+/tmp/elite-roast_*
+
+# logs
+logs/
+*.log
+server.log
+
+# runtime
+pids/
+*.pid
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# editor
+.vscode/
+.idea/
+*.swp
+*~
+
+# sensitive files - should never be here
+opencode.txt
+*.pem
+*.key
+*.p12

@@ -1,0 +1,8 @@
+#!/bin/bash
+FAIL_FILE="/tmp/roast_failures_${UID}"
+if [ -f "$FAIL_FILE" ]; then
+    failures=$(cat "$FAIL_FILE")
+    echo "failures today: $failures  --  nakkan lee, en guru idu"
+else
+    echo "no failures. super guru, or just not trying anything?"
+fi

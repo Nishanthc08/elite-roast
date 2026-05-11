@@ -1,0 +1,3 @@
+roast.sh    usr/share/elite-roast/
+roasts.sh   usr/share/elite-roast/
+roast-stats usr/bin/

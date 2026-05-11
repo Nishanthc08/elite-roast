@@ -1,0 +1,38 @@
+INSTALL
+=======
+
+Requirements
+------------
+- Ubuntu 18.04 or later, or any Debian-based system
+- bash 4.0 or higher (pre-installed on all modern Ubuntu/Debian)
+- no other dependencies
+
+Installing from the .deb package
+---------------------------------
+Download the latest .deb from the releases page and run:
+
+    sudo dpkg -i elite-roast_1.0_all.deb
+
+Open a new terminal. Roasting starts immediately.
+
+Building from source
+--------------------
+    git clone https://github.com/Nishanthc08/elite-roast.git
+    cd elite-roast
+    bash build.sh
+    sudo dpkg -i elite-roast_1.0_all.deb
+
+Removing
+--------
+    sudo apt remove elite-roast
+
+This removes all installed files and cleans up .bashrc for all users.
+
+Verifying removal
+-----------------
+After removal, all of these should return nothing:
+
+    dpkg -l | grep elite-roast
+    ls /etc/profile.d/ | grep roast
+    grep roast ~/.bashrc
+    which roast-stats

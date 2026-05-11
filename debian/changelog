@@ -1,0 +1,11 @@
+elite-roast (1.0) stable; urgency=low
+
+  * Initial release
+  * Bengaluru style terminal roaster with Kannada meme language
+  * 187+ roasts across 8 categories
+  * command_not_found_handle hook for unknown commands
+  * Typo correction suggestions
+  * Per-user failure counter
+  * Clean install and removal via deb package
+
+ -- Nishanth C <nishanthc264@gmail.com>  Mon, 06 Apr 2026 00:00:00 +0530

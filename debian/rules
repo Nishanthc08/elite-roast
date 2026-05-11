@@ -1,0 +1,15 @@
+#!/usr/bin/make -f
+%:
+	dh $@
+
+override_dh_auto_install:
+	install -d debian/elite-roast/usr/share/elite-roast
+	install -d debian/elite-roast/usr/bin
+	install -d debian/elite-roast/usr/share/man/man1
+	install -m 755 roast.sh    debian/elite-roast/usr/share/elite-roast/roast.sh
+	install -m 755 roasts.sh   debian/elite-roast/usr/share/elite-roast/roasts.sh
+	install -m 755 roast-stats debian/elite-roast/usr/bin/roast-stats
+	gzip -9 -n -c debian/roast-stats.1 > debian/elite-roast/usr/share/man/man1/roast-stats.1.gz
+
+override_dh_auto_build:
+override_dh_auto_test:

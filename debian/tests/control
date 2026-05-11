@@ -1,0 +1,3 @@
+Tests: basic-roast, unknown-cmd, failure-counter, clean-removal
+Depends: @, bash
+Restrictions: needs-root

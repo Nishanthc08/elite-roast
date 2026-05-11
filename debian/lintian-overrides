@@ -1,0 +1,2 @@
+# per-user runtime files with fixed UID suffix, no user input involved
+elite-roast: possibly-insecure-handling-of-tmp-files-in-maintainer-script /tmp [prerm:24]

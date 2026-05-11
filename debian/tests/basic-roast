@@ -1,0 +1,15 @@
+#!/bin/bash
+# autopkgtest: basic-roast
+# checks that roast.sh loads and aliases activate correctly
+set -e
+
+source /usr/share/elite-roast/roast.sh
+setup_roast_aliases
+
+# check the function exists
+type command_not_found_handle > /dev/null 2>&1 || { echo "FAIL: command_not_found_handle not defined"; exit 1; }
+type roast_em > /dev/null 2>&1              || { echo "FAIL: roast_em not defined"; exit 1; }
+type execute > /dev/null 2>&1              || { echo "FAIL: execute not defined"; exit 1; }
+type roast_stats > /dev/null 2>&1          || { echo "FAIL: roast_stats not defined"; exit 1; }
+
+echo "PASS: all functions loaded correctly"

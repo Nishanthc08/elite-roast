@@ -54,7 +54,7 @@ chmod 755 /tmp/$PKG/usr/share/elite-roast/roast.sh
 chmod 755 /tmp/$PKG/usr/share/elite-roast/roasts.sh
 
 # build
-dpkg-deb --build /tmp/$PKG ${PKG}.deb
+dpkg-deb --build --root-owner-group /tmp/$PKG ${PKG}.deb
 
 echo ""
 echo "built: ${PKG}.deb"

@@ -17,7 +17,9 @@ jobs:
         uses: actions/checkout@v4
 
       - name: install tools
-        run: sudo apt-get install -y lintian dpkg-sig
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lintian
 
       - name: build deb
         run: |
@@ -30,7 +32,7 @@ jobs:
       - name: run test suite
         run: |
           sudo dpkg -i elite-roast_1.0_all.deb
-          for test in debian/tests/*; do
+          for test in debian/tests/basic-roast debian/tests/unknown-cmd debian/tests/failure-counter debian/tests/clean-removal; do
             echo "--- $(basename $test) ---"
             bash "$test"
           done
@@ -43,6 +45,6 @@ jobs:
 
       - name: attach to release
         if: github.event_name == 'release'
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           files: elite-roast_1.0_all.deb

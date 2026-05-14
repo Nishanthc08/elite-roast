@@ -49,7 +49,7 @@ roast-stats         # show today's failure count
 ## remove
 
 ```bash
-sudo apt remove elite-roast
+sudo dpkg --purge remove elite-roast
 ```
 
 open a new terminal. everything is gone - no leftover files, no broken `.bashrc`.

@@ -8,7 +8,7 @@ You do not need to know bash. You do not need to be a developer. If you can writ
 When you type a wrong command, elite-roast picks a random line from an array and shows it. All these lines live in one file called `roasts.sh`. That is the only file you need to touch.
 
 
-## Step 1 — Fork and clone the repo
+## Step 1 - Fork and clone the repo
 
 On GitHub, click Fork in the top right. Then clone your fork:
 
@@ -18,7 +18,7 @@ cd elite-roast
 ```
 
 
-## Step 2 — Open roasts.sh
+## Step 2 - Open roasts.sh
 
 ```bash
 nano roasts.sh
@@ -48,7 +48,7 @@ UNKNOWN_EXTRAS       bonus line after unknown command roasts
 ```
 
 
-## Step 3 — Add your roasts
+## Step 3 - Add your roasts
 
 Pick the right array and add your lines. Put a comment above them so people know what language it is:
 
@@ -83,7 +83,7 @@ Things to avoid:
 - Overly long roasts - shorter is usually funnier
 
 
-## Step 4 — Test locally
+## Step 4 - Test locally
 
 ```bash
 source roast.sh
@@ -96,7 +96,7 @@ pythoon
 Make sure your roasts show up and nothing broke.
 
 
-## Step 5 — Open a pull request
+## Step 5 - Open a pull request
 
 Commit your changes:
 

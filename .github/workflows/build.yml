@@ -18,7 +18,7 @@ jobs:
     
     steps:
       - name: checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: install tools
         run: |
@@ -42,7 +42,7 @@ jobs:
           done
 
       - name: upload artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v4.6.2
         with:
           name: elite-roast-deb
           path: elite-roast_1.0_all.deb

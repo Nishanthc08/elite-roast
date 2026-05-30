@@ -261,7 +261,7 @@ GENERIC_INSULTS=(
 "bug stubborn guru"
 "logic alli holes ide"
 "segfault ah… ayyo"
-"not bug feature anta helbeda please"
+"It's not a bug. It's feature; anta helbeda please"
 "debugger ninna life question madtide"
 "error count only increasing"
 "sarjapur traffic speed idu"
